@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'date'
 require 'faraday'
 
 domain = 'https://www.pensionwise.gov.uk'
