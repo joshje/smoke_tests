@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      h1 {
+        font-family: Verdana, Geneva, sans-serif;
+        text-align: center;
+        font-size: 12vw;
+        color: green;
+      }
+      h1.fail {
+        color: red;
+      }
+    </style>
+    <h1 class="<%= 'fail' unless @production %>">Production</h1>
+    <h1 class="<%= 'fail' unless @staging %>">Staging</h1>
+  </body>
+</html>
