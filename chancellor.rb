@@ -1,9 +1,22 @@
 require 'sinatra/base'
 
+require_relative 'domain/staging'
+require_relative 'domain/production'
+
 class Chancellor < Sinatra::Base
+  helpers do
+    def production
+      @productionn ||= Production.new
+    end
+
+    def staging
+      @staging ||= Staging.new
+    end
+  end
+
   get '/' do
-    @staging = false
-    @production = true
+    @staging = staging.success?
+    @production = production.success?
     erb :index
   end
 end
