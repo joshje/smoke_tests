@@ -2,6 +2,7 @@ $: << File.join(File.dirname(__FILE__), '..')
 
 ENV['RACK_ENV'] = 'test'
 
+require 'pry'
 require 'rack/test'
 require 'rspec'
 require 'chancellor'
