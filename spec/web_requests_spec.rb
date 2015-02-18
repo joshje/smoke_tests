@@ -23,4 +23,17 @@ RSpec.describe 'web requests' do
       expect(last_response.body).to eql(output)
     end
   end
+
+  describe 'GET /staging' do
+    let(:output) { 'script output' }
+
+    before do
+      allow_any_instance_of(Staging).to receive(:output).and_return(output)
+    end
+
+    it 'displays the test output' do
+      get '/staging'
+      expect(last_response.body).to eql(output)
+    end
+  end
 end
