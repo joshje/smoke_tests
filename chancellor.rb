@@ -31,4 +31,8 @@ class Chancellor < Sinatra::Base
   post '/production' do
     production.check
   end
+
+  post '/staging' do
+    staging.check
+  end
 end

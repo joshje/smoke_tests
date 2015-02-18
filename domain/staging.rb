@@ -4,4 +4,7 @@ class Staging
 
   def output
   end
+
+  def check
+  end
 end

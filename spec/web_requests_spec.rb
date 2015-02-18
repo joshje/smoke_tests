@@ -43,4 +43,11 @@ RSpec.describe 'web requests' do
       post '/production'
     end
   end
+
+  describe 'POST /staging' do
+    it 'runs the test' do
+      expect_any_instance_of(Staging).to receive(:check)
+      post '/staging'
+    end
+  end
 end
