@@ -4,4 +4,7 @@ class Production
 
   def output
   end
+
+  def check
+  end
 end

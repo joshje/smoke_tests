@@ -36,4 +36,11 @@ RSpec.describe 'web requests' do
       expect(last_response.body).to eql(output)
     end
   end
+
+  describe 'POST /production' do
+    it 'runs the test' do
+      expect_any_instance_of(Production).to receive(:check)
+      post '/production'
+    end
+  end
 end

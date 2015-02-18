@@ -27,4 +27,8 @@ class Chancellor < Sinatra::Base
   get '/staging' do
     staging.output
   end
+
+  post '/production' do
+    production.check
+  end
 end
