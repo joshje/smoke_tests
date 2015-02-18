@@ -19,4 +19,8 @@ class Chancellor < Sinatra::Base
     @production = production.success?
     erb :index
   end
+
+  get '/production' do
+    production.output
+  end
 end

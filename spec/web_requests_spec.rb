@@ -10,4 +10,17 @@ RSpec.describe 'web requests' do
       get '/'
     end
   end
+
+  describe 'GET /production' do
+    let(:output) { 'script output' }
+
+    before do
+      allow_any_instance_of(Production).to receive(:output).and_return(output)
+    end
+
+    it 'displays the test output' do
+      get '/production'
+      expect(last_response.body).to eql(output)
+    end
+  end
 end
