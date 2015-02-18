@@ -17,4 +17,11 @@ RSpec.describe Environment do
   subject(:environment) { environment_class.new }
 
   specify { expect(environment.script).to eql(script_to_run) }
+
+  describe '#check' do
+    it 'runs the script' do
+      expect(environment).to receive(:run_script).with(script_to_run)
+      environment.check
+    end
+  end
 end
