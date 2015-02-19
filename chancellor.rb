@@ -21,10 +21,12 @@ class Chancellor < Sinatra::Base
   end
 
   get '/production' do
+    content_type :text
     production.output
   end
 
   get '/staging' do
+    content_type :text
     staging.output
   end
 
