@@ -6,13 +6,16 @@
         font-family: Verdana, Geneva, sans-serif;
         text-align: center;
         font-size: 12vw;
+      }
+      a {
+        text-decoration: none;
         color: green;
       }
-      h1.fail {
+      .fail a {
         color: red;
       }
     </style>
-    <h1 class="<%= 'fail' unless @production %>">Production</h1>
-    <h1 class="<%= 'fail' unless @staging %>">Staging</h1>
+    <h1 class="<%= 'fail' unless @production %>"><a href="/production">Production</a></h1>
+    <h1 class="<%= 'fail' unless @staging %>"><a href="/staging">Staging</a></h1>
   </body>
 </html>
