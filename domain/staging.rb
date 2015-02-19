@@ -1,10 +1,5 @@
-class Staging
-  def success?
-  end
+require_relative 'environment'
 
-  def output
-  end
-
-  def check
-  end
+class Staging < Environment
+  run './bin/test_staging.rb'
 end

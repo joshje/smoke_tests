@@ -1,10 +1,5 @@
-class Production
-  def success?
-  end
+require_relative 'environment'
 
-  def output
-  end
-
-  def check
-  end
+class Production < Environment
+  run './bin/test_production.rb'
 end
