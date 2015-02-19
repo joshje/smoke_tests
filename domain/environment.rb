@@ -26,6 +26,10 @@ class Environment
     self.class.redis.get("#{self.class.to_s.downcase}_status") == '0'
   end
 
+  def output
+    self.class.redis.get("#{self.class.to_s.downcase}_output")
+  end
+
   private
 
   def run_script(command)

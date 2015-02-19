@@ -53,4 +53,12 @@ RSpec.describe Environment do
       specify { expect(environment.success?).to be_falsy }
     end
   end
+
+  describe '#output' do
+    before do
+      redis.set(output_field, output)
+    end
+
+    specify { expect(environment.output).to eq(output) }
+  end
 end
