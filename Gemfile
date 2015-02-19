@@ -6,6 +6,7 @@ gem 'faraday'
 gem 'sinatra'
 
 group :test, :development do
+  gem 'fakeredis', require: 'fakeredis/rspec'
   gem 'pry'
   gem 'rspec'
   gem 'rack-test'

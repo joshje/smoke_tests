@@ -3,6 +3,8 @@ GEM
   specs:
     coderay (1.1.0)
     diff-lcs (1.2.5)
+    fakeredis (0.5.0)
+      redis (~> 3.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     method_source (0.8.2)
@@ -16,6 +18,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    redis (3.2.1)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -40,6 +43,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  fakeredis
   faraday
   pry
   rack-test
