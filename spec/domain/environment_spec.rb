@@ -21,6 +21,10 @@ RSpec.describe Environment do
 
   subject(:environment) { environment_class.new }
 
+  before do
+    redis.flushdb
+  end
+
   specify { expect(environment.script).to eql(script_to_run) }
 
   describe '#check' do
@@ -32,5 +36,21 @@ RSpec.describe Environment do
 
     specify { expect(redis.get(status_field)).to eql(status.to_s) }
     specify { expect(redis.get(output_field)).to eql(output) }
+  end
+
+  describe '#success?' do
+    before do
+      redis.set(status_field, status)
+    end
+
+    context 'when zero' do
+      specify { expect(environment.success?).to be_truthy }
+    end
+
+    context 'when non-zero' do
+      let(:status) { "1" }
+
+      specify { expect(environment.success?).to be_falsy }
+    end
   end
 end
