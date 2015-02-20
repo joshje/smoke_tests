@@ -19,6 +19,8 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     redis (3.2.1)
+    redis-namespace (1.5.1)
+      redis (~> 3.0, >= 3.0.4)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -47,5 +49,7 @@ DEPENDENCIES
   faraday
   pry
   rack-test
+  redis
+  redis-namespace
   rspec
   sinatra

@@ -13,11 +13,11 @@ RSpec.describe Environment do
       end)
     end
   end
-  let(:status_field) { "#{environment_name}_status" }
-  let(:output_field) { "#{environment_name}_output" }
+  let(:status_field) { "#{environment_name}:status" }
+  let(:output_field) { "#{environment_name}:output" }
   let(:status) { 0 }
   let(:output) { 'output' }
-  let(:redis) { described_class.redis }
+  let(:redis) { Redis.new }
 
   subject(:environment) { environment_class.new }
 

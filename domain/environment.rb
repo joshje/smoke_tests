@@ -1,4 +1,6 @@
 require 'fakeredis'
+require 'redis'
+require 'redis-namespace'
 
 class Environment
   class << self
@@ -6,10 +8,6 @@ class Environment
       @script = command
     end
     attr_reader :script
-
-    def redis
-      @redis ||= Redis.new
-    end
   end
 
   def script
@@ -18,16 +16,16 @@ class Environment
 
   def check
     output = run_script(script)
-    self.class.redis.set("#{self.class.to_s.downcase}_status", exit_status)
-    self.class.redis.set("#{self.class.to_s.downcase}_output", output)
+    redis.set(:status, exit_status)
+    redis.set(:output, output)
   end
 
   def success?
-    self.class.redis.get("#{self.class.to_s.downcase}_status") == '0'
+    redis.get(:status) == '0'
   end
 
   def output
-    self.class.redis.get("#{self.class.to_s.downcase}_output")
+    redis.get(:output)
   end
 
   private
@@ -38,5 +36,9 @@ class Environment
 
   def exit_status
     $?.exitstatus
+  end
+
+  def redis
+    @redis ||= Redis::Namespace.new(self.class.to_s.downcase, redis: Redis.new)
   end
 end
