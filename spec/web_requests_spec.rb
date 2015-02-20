@@ -24,6 +24,29 @@ RSpec.describe 'web requests' do
     end
   end
 
+  describe 'GET /production.json' do
+    let(:success) { true }
+    let(:json_status) do
+      JSON.parse(last_response.body)['status']
+    end
+
+    before do
+      allow_any_instance_of(Production).to receive(:success?).and_return(success)
+      get '/production.json'
+    end
+
+    context 'when successful' do
+      specify { expect(last_response.headers['Content-Type']).to eql('application/json') }
+      specify { expect(json_status).to eql('up') }
+    end
+
+    context 'when unsuccessful' do
+      let(:success) { false }
+
+      specify { expect(json_status).to eql('down') }
+    end
+  end
+
   describe 'GET /staging' do
     let(:output) { 'script output' }
 
@@ -34,6 +57,29 @@ RSpec.describe 'web requests' do
     it 'displays the test output' do
       get '/staging'
       expect(last_response.body).to eql(output)
+    end
+  end
+
+  describe 'GET /staging.json' do
+    let(:success) { true }
+    let(:json_status) do
+      JSON.parse(last_response.body)['status']
+    end
+
+    before do
+      allow_any_instance_of(Staging).to receive(:success?).and_return(success)
+      get '/staging.json'
+    end
+
+    context 'when successful' do
+      specify { expect(last_response.headers['Content-Type']).to eql('application/json') }
+      specify { expect(json_status).to eql('up') }
+    end
+
+    context 'when unsuccessful' do
+      let(:success) { false }
+
+      specify { expect(json_status).to eql('down') }
     end
   end
 

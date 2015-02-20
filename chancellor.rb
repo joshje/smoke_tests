@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'json'
 
 require_relative 'domain/staging'
 require_relative 'domain/production'
@@ -11,6 +12,12 @@ class Chancellor < Sinatra::Base
 
     def staging
       @staging ||= Staging.new
+    end
+
+    def render_as_json(success)
+      JSON.generate(
+        status: (success) ? 'up': 'down'
+      )
     end
   end
 
@@ -25,9 +32,19 @@ class Chancellor < Sinatra::Base
     production.output
   end
 
+  get '/production.json' do
+    content_type :json
+    render_as_json(production.success?)
+  end
+
   get '/staging' do
     content_type :text
     staging.output
+  end
+
+  get '/staging.json' do
+    content_type :json
+    render_as_json(staging.success?)
   end
 
   post '/production' do
