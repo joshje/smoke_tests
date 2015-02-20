@@ -1,4 +1,3 @@
-require 'fakeredis'
 require 'redis'
 require 'redis-namespace'
 
@@ -39,6 +38,7 @@ class Environment
   end
 
   def redis
-    @redis ||= Redis::Namespace.new(self.class.to_s.downcase, redis: Redis.new)
+    @redis ||= Redis::Namespace.new(self.class.to_s.downcase,
+      redis: Redis.new(url: ENV['REDISTOGO_URL']))
   end
 end
