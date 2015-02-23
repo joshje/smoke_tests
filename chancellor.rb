@@ -5,13 +5,18 @@ require_relative 'domain/staging'
 require_relative 'domain/production'
 
 class Chancellor < Sinatra::Base
+  configure do
+    set :production, Production.new
+    set :staging, Staging.new
+  end
+
   helpers do
     def production
-      @productionn ||= Production.new
+      settings.production
     end
 
     def staging
-      @staging ||= Staging.new
+      settings.staging
     end
 
     def render_as_json(success)

@@ -7,6 +7,10 @@ class Environment
       @script = command
     end
     attr_reader :script
+
+    def redis
+      @@redis ||= Redis.new(url: ENV['REDISTOGO_URL'])
+    end
   end
 
   def script
@@ -38,7 +42,6 @@ class Environment
   end
 
   def redis
-    @redis ||= Redis::Namespace.new(self.class.to_s.downcase,
-      redis: Redis.new(url: ENV['REDISTOGO_URL']))
+    @redis ||= Redis::Namespace.new(self.class.to_s.downcase, redis: self.class.redis)
   end
 end
