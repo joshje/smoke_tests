@@ -1,5 +1,5 @@
 require_relative 'environment'
 
 class Staging < Environment
-  run './bin/test_staging.rb'
+  run './bin/staging_page_test.rb'
 end

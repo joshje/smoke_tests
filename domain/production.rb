@@ -1,5 +1,5 @@
 require_relative 'environment'
 
 class Production < Environment
-  run './bin/test_production.rb'
+  run './bin/production_cache_test.rb'
 end

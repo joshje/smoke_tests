@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
 require 'date'
 require 'faraday'
 
@@ -22,17 +23,17 @@ pages = %w(
   /work-out-income
 )
 
+puts ">> Checking at #{Time.now}"
+
 conn = Faraday.new(domain)
 
 for page in pages do
   puts page
   response = conn.get(page)
 
-  unless response.status == 200
-    raise "Status code was #{response.status}"
-  end
-
   unless DateTime.parse(response.headers['expires']).to_time > Time.now
     raise "Expires at #{response.headers['expires']}"
   end
 end
+
+puts '>> OK'
