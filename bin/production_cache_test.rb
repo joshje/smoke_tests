@@ -20,6 +20,7 @@ pages = %w(
   /scams
   /shop-around
   /tax
+  /when-you-die
   /work-out-income
 )
 
