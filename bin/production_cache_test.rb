@@ -8,6 +8,7 @@ domain = 'https://www.pensionwise.gov.uk'
 pages = %w(
   /
   /6-steps-you-need-to-take
+  /already-bought-annuity
   /benefits
   /complaints
   /divorce
