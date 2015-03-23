@@ -12,6 +12,7 @@ pages = %w(
   /appointments
   /benefits
   /complaints
+  /cookies
   /divorce
   /living-abroad
   /making-money-last
