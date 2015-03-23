@@ -9,6 +9,7 @@ pages = %w(
   /
   /6-steps-you-need-to-take
   /already-bought-annuity
+  /appointments
   /benefits
   /complaints
   /divorce
