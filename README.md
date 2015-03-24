@@ -38,5 +38,5 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 
 [bundler]: http://bundler.io
 [git]: http://git-scm.com
-[pension wise]: https://www.gov.uk/pensionwise
+[pension wise]: https://www.pensionwise.gov.uk
 [ruby]: http://www.ruby-lang.org/en
