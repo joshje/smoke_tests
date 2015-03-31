@@ -11,7 +11,7 @@ pages = %w(
   /already-bought-annuity
   /appointments
   /benefits
-  /complaints
+  /contact
   /cookies
   /divorce
   /living-abroad
