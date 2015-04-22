@@ -13,6 +13,7 @@ pages = %w(
   /benefits
   /contact
   /cookies
+  /cymraeg
   /divorce
   /living-abroad
   /making-money-last
