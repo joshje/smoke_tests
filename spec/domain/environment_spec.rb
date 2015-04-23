@@ -27,7 +27,7 @@ RSpec.describe Environment do
     redis.flushdb
   end
 
-  specify { expect(environment.script).to eql(script_to_run) }
+  specify { expect(environment.scripts).to eql([script_to_run]) }
 
   describe '#check' do
     before do
@@ -36,7 +36,7 @@ RSpec.describe Environment do
     end
 
     specify { expect(redis.get(status_field)).to eql(status.to_s) }
-    specify { expect(redis.get(output_field)).to eql(output) }
+    specify { expect(redis.get(output_field)).to eql("#{output}\n") }
   end
 
   describe '#success?' do
