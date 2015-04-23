@@ -18,9 +18,9 @@ class Environment
   end
 
   def check
-    output = run_script(script)
-    redis.set(:status, exit_status)
-    redis.set(:output, output)
+    result = ScriptRunner.run(script)
+    redis.set(:status, result.status)
+    redis.set(:output, result.output)
   end
 
   def success?
@@ -32,14 +32,6 @@ class Environment
   end
 
   private
-
-  def run_script(command)
-    %x(#{command} 2>&1)
-  end
-
-  def exit_status
-    $?.exitstatus
-  end
 
   def redis
     @redis ||= Redis::Namespace.new(self.class.to_s.downcase, redis: self.class.redis)
