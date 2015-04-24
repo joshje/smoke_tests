@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'faraday'
+gem 'mechanize'
 gem 'redis'
 gem 'redis-namespace'
 gem 'sinatra'
