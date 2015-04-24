@@ -28,7 +28,7 @@ pages = %w(
   /work-out-income
 )
 
-puts ">> Checking at #{Time.now}"
+puts ">> Checking #{domain} at #{Time.now}"
 
 conn = Faraday.new(domain)
 
