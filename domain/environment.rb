@@ -1,6 +1,8 @@
 require 'redis'
 require 'redis-namespace'
 
+require_relative '../lib/script_runner'
+
 class Environment
   class << self
     def run(command)

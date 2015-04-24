@@ -3,7 +3,6 @@ require 'json'
 
 require_relative 'domain/staging'
 require_relative 'domain/production'
-require_relative 'lib/script_runner'
 
 class Chancellor < Sinatra::Base
   configure do
