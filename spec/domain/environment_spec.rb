@@ -1,4 +1,5 @@
 require 'domain/environment'
+require 'lib/script_runner'
 
 RSpec.describe Environment do
   let(:script_to_run) { './bin/smoke_test' }
@@ -17,6 +18,7 @@ RSpec.describe Environment do
   let(:output_field) { "#{environment_name}:output" }
   let(:status) { 0 }
   let(:output) { 'output' }
+  let(:script_result) { double(output: output, status: status) }
   let(:redis) { Redis.new }
 
   subject(:environment) { environment_class.new }
@@ -25,17 +27,16 @@ RSpec.describe Environment do
     redis.flushdb
   end
 
-  specify { expect(environment.script).to eql(script_to_run) }
+  specify { expect(environment.scripts).to eql([script_to_run]) }
 
   describe '#check' do
     before do
-      allow(environment).to receive(:run_script).with(script_to_run).and_return(output)
-      allow(environment).to receive(:exit_status).and_return(status)
+      allow(ScriptRunner).to receive(:run).with(script_to_run).and_return(script_result)
       environment.check
     end
 
     specify { expect(redis.get(status_field)).to eql(status.to_s) }
-    specify { expect(redis.get(output_field)).to eql(output) }
+    specify { expect(redis.get(output_field)).to eql("#{output}\n") }
   end
 
   describe '#success?' do

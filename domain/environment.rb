@@ -4,23 +4,29 @@ require 'redis-namespace'
 class Environment
   class << self
     def run(command)
-      @script = command
+      @scripts ||= []
+      @scripts << command
     end
-    attr_reader :script
+    attr_reader :scripts
 
     def redis
       @@redis ||= Redis.new(url: ENV['REDISTOGO_URL'])
     end
   end
 
-  def script
-    self.class.script
+  def scripts
+    self.class.scripts
   end
 
   def check
-    output = run_script(script)
-    redis.set(:status, exit_status)
-    redis.set(:output, output)
+    redis.del(:status, :output)
+
+    scripts.each do |script|
+      result = ScriptRunner.run(script)
+      redis.set(:status, result.status)
+      redis.append(:output, "#{result.output}\n")
+      break if result.status != 0
+    end
   end
 
   def success?
@@ -32,14 +38,6 @@ class Environment
   end
 
   private
-
-  def run_script(command)
-    %x(#{command} 2>&1)
-  end
-
-  def exit_status
-    $?.exitstatus
-  end
 
   def redis
     @redis ||= Redis::Namespace.new(self.class.to_s.downcase, redis: self.class.redis)
