@@ -8,6 +8,7 @@ domain = 'https://staging-www.pensionwise.gov.uk/'
 pages = %w(
   /
   /6-steps-you-need-to-take
+  /adjustable-income
   /already-bought-annuity
   /appointments
   /benefits
@@ -15,8 +16,11 @@ pages = %w(
   /cookies
   /cymraeg
   /divorce
+  /guaranteed-income
+  /leave-pot-untouched
   /living-abroad
   /making-money-last
+  /mix-options
   /pension-complaints
   /pension-pot-options
   /pension-pot-value
@@ -24,6 +28,7 @@ pages = %w(
   /protection
   /scams
   /shop-around
+  /take-cash
   /tax
   /when-you-die
   /work-out-income
