@@ -42,6 +42,10 @@ for page in pages do
   puts page
   response = conn.get(page)
 
+  unless response.status == 200
+    raise "Status code was #{response.status}"
+  end
+
   unless DateTime.parse(response.headers['expires']).to_time > Time.now
     raise "Expires at #{response.headers['expires']}"
   end
