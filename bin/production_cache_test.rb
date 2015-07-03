@@ -19,6 +19,9 @@ pages = %w(
   /guaranteed-income
   /leave-pot-untouched
   /living-abroad
+  /locations
+  /locations?postcode=LONDON
+  /locations?postcode=SW1A%202HQ
   /making-money-last
   /mix-options
   /pension-complaints
