@@ -1,6 +1,6 @@
 require_relative 'environment'
 
 class Production < Environment
-  run './bin/production_cache_test.rb'
+  run "./bin/pension_guidance_test.rb #{ENV['PENSION_GUIDANCE_PRODUCTION_DOMAIN']}"
   run "./bin/output_document_test.rb #{ENV['OUTPUT_DOCUMENT_PRODUCTION_DOMAIN']}"
 end

@@ -4,7 +4,9 @@ require 'bundler/setup'
 require 'date'
 require 'faraday'
 
-domain = 'https://www.pensionwise.gov.uk'
+domain = ARGV[0]
+staging = domain =~ /staging/
+production = !staging
 pages = %w(
   /
   /6-steps-you-need-to-take
@@ -41,6 +43,10 @@ puts ">> Checking #{domain} at #{Time.now}"
 
 conn = Faraday.new(domain)
 
+if staging && ENV['AUTH_USERNAME'] && ENV['AUTH_PASSWORD']
+  conn.basic_auth( ENV['AUTH_USERNAME'], ENV['AUTH_PASSWORD'])
+end
+
 for page in pages do
   puts page
   response = conn.get(page)
@@ -49,8 +55,10 @@ for page in pages do
     raise "Status code was #{response.status}"
   end
 
-  unless DateTime.parse(response.headers['expires']).to_time > Time.now
-    raise "Expires at #{response.headers['expires']}"
+  if production
+    unless DateTime.parse(response.headers['expires']).to_time > Time.now
+      raise "Expires at #{response.headers['expires']}"
+    end
   end
 end
 
