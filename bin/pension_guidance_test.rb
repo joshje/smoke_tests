@@ -22,8 +22,6 @@ pages = %w(
   /leave-pot-untouched
   /living-abroad
   /locations
-  /locations?postcode=LONDON
-  /locations?postcode=SW1A%202HQ
   /locations/15fd41b2-439a-448a-b775-b2b61e16d4bb
   /making-money-last
   /mix-options
