@@ -11,7 +11,7 @@ puts ">> Checking #{domain} at #{Time.now}"
 mech = Mechanize.new
 
 if ENV['AUTH_USERNAME'] && ENV['AUTH_PASSWORD']
-  mech.auth('username', 'password')
+  mech.add_auth(domain, ENV['AUTH_USERNAME'], ENV['AUTH_PASSWORD'])
 end
 
 page = mech.get("#{domain}/locations")
