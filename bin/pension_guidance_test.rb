@@ -29,6 +29,7 @@ pages = %w(
   /pension-pot-options
   /pension-pot-value
   /pension-types
+  /privacy
   /protection
   /scams
   /shop-around
