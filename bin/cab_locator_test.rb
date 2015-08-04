@@ -44,7 +44,7 @@ end
 
 page = page.link_with(dom_class: 't-name').click
 
-if page.body =~ /To book an appointment at/
+if page.body =~ /Camden Citizens Advice/
   puts '> Renders location'
 else
   raise 'Should render location'
