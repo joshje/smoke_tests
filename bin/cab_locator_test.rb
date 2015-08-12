@@ -22,7 +22,7 @@ else
   raise 'Should render location finder'
 end
 
-form = page.forms.first
+form = page.form_with(action: '/locations')
 form['postcode'] = 'LONDON'
 page = form.submit(form.buttons.first)
 
@@ -32,7 +32,7 @@ else
   raise 'Should render invalid postcode message'
 end
 
-form = page.forms.first
+form = page.form_with(action: '/locations')
 form['postcode'] = 'SW1A 2HQ'
 page = form.submit(form.buttons.first)
 
