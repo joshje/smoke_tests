@@ -8,6 +8,7 @@ Smoke tests for [Pension Wise].
 * [Bundler]
 * [Git]
 * [Ruby 2.2.0][Ruby]
+* [Redis]
 
 
 ## Installation
@@ -40,3 +41,4 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [git]: http://git-scm.com
 [pension wise]: https://www.pensionwise.gov.uk
 [ruby]: http://www.ruby-lang.org/en
+[redis]: http://redis.io/
