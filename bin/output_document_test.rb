@@ -26,7 +26,7 @@ form['user[password]'] = password
 
 page = form.submit(form.buttons.first)
 
-if page.body =~ /issue a personalised record of guidance/
+if page.body =~ /issue a summary document/
   puts '> Renders logged in view'
 else
   raise 'Should be logged in'
