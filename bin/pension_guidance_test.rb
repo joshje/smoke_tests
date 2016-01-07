@@ -14,6 +14,7 @@ pages = %w(
   /already-bought-annuity
   /appointments
   /benefits
+  /care-costs
   /contact
   /cookies
   /cymraeg
