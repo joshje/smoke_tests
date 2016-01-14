@@ -15,6 +15,7 @@ pages = %w(
   /appointments
   /benefits
   /care-costs
+  /combine-pots
   /contact
   /cookies
   /cymraeg
