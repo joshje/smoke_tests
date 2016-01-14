@@ -19,6 +19,7 @@ pages = %w(
   /cookies
   /cymraeg
   /divorce
+  /financial-advice
   /guaranteed-income
   /leave-pot-untouched
   /living-abroad
