@@ -9,7 +9,6 @@ staging = domain =~ /staging/
 production = !staging
 pages = %w(
   /
-  /6-steps-you-need-to-take
   /adjustable-income
   /already-bought-annuity
   /appointments
