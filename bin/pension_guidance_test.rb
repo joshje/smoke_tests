@@ -14,6 +14,11 @@ pages = %w(
   /already-bought-annuity
   /appointments
   /benefits
+  /browse/illness-and-death
+  /browse/more
+  /browse/taking-your-pension-money
+  /browse/tax-and-getting-advice
+  /browse/your-pension-details
   /care-costs
   /combine-pots
   /contact
