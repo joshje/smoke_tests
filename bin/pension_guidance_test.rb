@@ -23,6 +23,7 @@ pages = %w(
   /contact
   /cookies
   /cymraeg
+  /debt
   /divorce
   /financial-advice
   /guaranteed-income
