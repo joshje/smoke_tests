@@ -33,7 +33,7 @@ else
 end
 
 form = page.form_with(action: '/locations')
-form['postcode'] = 'SW1A 2HQ'
+form['postcode'] = 'RG2 9AF'
 page = form.submit(form.buttons.first)
 
 if page.body =~ /Face-to-face locations near/
@@ -44,7 +44,7 @@ end
 
 page = page.link_with(dom_class: 't-name').click
 
-if page.body =~ /Camden/
+if page.body =~ /Wokingham/
   puts '> Renders location'
 else
   raise 'Should render location'
