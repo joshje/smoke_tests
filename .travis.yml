@@ -1,5 +1,13 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.3.0
-script: 'bundle exec rspec'
+- 2.3.0
+script: bundle exec rspec
+deploy:
+  provider: heroku
+  app: ggp-smoke-tests
+  api_key:
+    secure: ScSK8LmrP9gBT3BLvyjoxFzSgcFkzJ1LHVi3n2ZPeF79naS2o1Zv6K9RRcts6jOM9v9msgUEd/qiua6WumE2ild14eoDzMrsb25eIIkk+kch2i1ywwE8qXQ/0NQoAQ6hbzV6wgCpFmTOJdOIhE7ZaUln8kHQA6Q82f2xfu/LdzQ=
+  on:
+    repo: guidance-guarantee-programme/smoke_tests
+  run: curl -X POST -d '' https://ggp-smoke-tests.herokuapp.com/staging
