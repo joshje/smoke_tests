@@ -13,4 +13,4 @@ deploy:
   run: curl -X POST -d '' https://ggp-smoke-tests.herokuapp.com/staging
 notifications:
   slack:
-    secure: dbkW7tikYd7n+K8JgMmfowamyeYxWAFkEEJbtVwKtKaucxezrrfggdThKnrQSu5a9JDwl3Owfy8Cd8XICG/Sy92REM9i6MIMeiO95j4lHwVt4up9UvXrxWbcHczRcBFFNAPj0oxRNFYmkwyYVqNtNk9G/TBUUnVbGC3DcQ4IRoo=
+    secure: edYPL3Ps5Z5SUh1ZsrYolSQJcqlMWDVgHvhZB5dL054ARShOKSSjZQCsn9KgoIufNYoEPhALaTDli2IcaLuXqNv44nCJ2pZl+qtYD/gHWZL/6pefaUJpAZWCm/hK17bUdAO1NItZ4vfbuPLHIKwMca3chb0xo7Qrg/hUYhP26Ak=
