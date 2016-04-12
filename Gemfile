@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby IO.read('.ruby-version').strip
 
 gem 'faraday'
 gem 'mechanize'
