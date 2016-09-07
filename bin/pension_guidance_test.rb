@@ -19,7 +19,7 @@ pages = %w(
   /browse/tax-and-getting-advice
   /browse/your-pension-details
   /care-costs
-  /combine-pots
+  /transfer-pension
   /contact
   /cookies
   /cymraeg
