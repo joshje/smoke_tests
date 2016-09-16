@@ -10,7 +10,6 @@ production = !staging
 pages = %w(
   /
   /adjustable-income
-  /already-bought-annuity
   /appointments
   /benefits
   /browse/illness-and-death
@@ -40,6 +39,7 @@ pages = %w(
   /privacy
   /protection
   /scams
+  /selling-your-annuity
   /shop-around
   /take-cash-in-chunks
   /take-whole-pot
