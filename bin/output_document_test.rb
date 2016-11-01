@@ -14,8 +14,8 @@ mech = Mechanize.new
 
 page = mech.get(domain)
 
-if page.body =~ /Log in/
-  puts '> Renders login form'
+if page.body =~ /Pension Wise Signon/
+  puts '> Redirects to Pension Wise Signon app'
 else
   raise 'Should render login form'
 end
