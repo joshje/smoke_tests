@@ -16,7 +16,7 @@ end
 
 page = mech.get("#{domain}/locations")
 
-if page.body =~ /Find a face-to-face appointment location/
+if page.body =~ /Find an appointment location near you/
   puts '> Renders location finder'
 else
   raise 'Should render location finder'
