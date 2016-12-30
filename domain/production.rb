@@ -6,4 +6,5 @@ class Production < Environment
   run "./bin/output_document_test.rb #{ENV['OUTPUT_DOCUMENT_PRODUCTION_DOMAIN']}"
   run "./bin/twilio_redirect_test.rb #{ENV['TWILIO_REDIRECT_PRODUCTION_DOMAIN']}"
   run "./bin/planner_backend_test.rb #{ENV['PLANNER_PRODUCTION_DOMAIN']}"
+  run "./bin/tap_backend_test.rb #{ENV['TAP_PRODUCTION_DOMAIN']}"
 end
